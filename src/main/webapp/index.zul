@@ -1,37 +1,25 @@
-<window border="normal" width="400px" title="Welcome! new user" apply="org.example.test.Registration">
-	<grid hflex="1">
-		<auxhead>
-			<auxheader colspan="2" label="Registration Form" style="font-size: 16px"/>
-		</auxhead>
-		<columns visible="false">
-			<column />
-			<column />
-		</columns>
+<window id="win" title="Car Inventory Editor" width="600px" border="normal" apply="org.example.test.Input">
+	<grid>
 		<rows>
 			<row>
-				User Name: <textbox id="nameBox" hflex="1" constraint="no empty" />
+				Title: <textbox id="titleBox" constraint="no empty" />
 			</row>
 			<row>
-				Gender:
-				<radiogroup id="genderRadio">
-					<radio label="Male" value="male" checked="true" />
-					<radio label="Female" value="female" />
-				</radiogroup>
+				Created Date (yyyy/MM/dd): <datebox id="createdDateBox" format="yyyy/MM/dd" constraint="no empty" />
 			</row>
 			<row>
-				Birthday: <datebox id="birthdayBox" hflex="1" constraint="no today, no future" />
+				Bar Code: <intbox id="barCodeIntBox" format="00000" constraint="no empty, no negative" />
 			</row>
-			<row spans="2" align="center">
-				<hlayout>
-					<checkbox id="acceptTermBox" /> Accept Term of Use
-				</hlayout>
+			<row>
+				Unit Price: <doublebox id="unitPriceDoubleBox" format=",###.#" constraint="no empty, no negative" />
 			</row>
-			<row spans="2" align="right">
-				<hlayout>
-					<button id="resetButton" label="Reset" />
-					<button id="submitButton" label="Submit" disabled="true" />
-				</hlayout>
+			<row>
+				Quantity: <spinner id="quantitySpinner" format=",###" constraint="no empty, min 0" />
+			</row>
+			<row>
+				Location (click location to edit): <textbox id="locationBox" inplace="true" />
 			</row>
 		</rows>
 	</grid>
+	<button id="submitButton" label="Submit" />
 </window>
