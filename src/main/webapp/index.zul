@@ -1,52 +1,48 @@
-<window title="ListBox" border="normal">
-	<listbox multiple="true" checkmark="true" mold="paging" pageSize="3">
-		<listhead>
-			<listheader width="50px" />
-			<listheader label="Model" sort="auto" />
-			<listheader label="Make" sort="auto" />
-			<listheader label="Type" sort="auto" />
-		</listhead>
-		<listitem>
-			<listcell />
-			<listcell label="RIO" />
-			<listcell label="KIA" />
-			<listcell label="Sedan" />
-		</listitem>
-		<listitem>
-			<listcell />
-			<listcell label="Civic" />
-			<listcell label="Honda" />
-			<listcell label="Sedan" />
-		</listitem>
-		<listitem>
-			<listcell />
-			<listcell label="Accord" />
-			<listcell label="Honda" />
-			<listcell label="Sedan" />
-		</listitem>
-		<listitem>
-			<listcell />
-			<listcell label="Camry" />
-			<listcell label="Toyota" />
-			<listcell label="Sedan" />
-		</listitem>
-		<listitem>
-			<listcell />
-			<listcell label="Corolla" />
-			<listcell label="Toyota" />
-			<listcell label="Sedan" />
-		</listitem>
-		<listitem>
-			<listcell />
-			<listcell label="Altima" />
-			<listcell label="Nissan" />
-			<listcell label="Sedan" />
-		</listitem>
-		<listitem>
-			<listcell />
-			<listcell label="Maxima" />
-			<listcell label="Nissan" />
-			<listcell label="Sedan" />
-		</listitem>
-	</listbox>
-</window>
+<tree id="tree" rows="7" multiple="true" checkmark="true">
+	<treecols>
+		<treecol label="Name" />
+		<treecol label="Description" />
+	</treecols>
+	<treechildren>
+		<treeitem>
+			<treerow>
+				<treecell label="Item 1" />
+				<treecell label="Item 1 description" />
+			</treerow>
+		</treeitem>
+		<treeitem>
+			<treerow>
+				<treecell label="Item 2" />
+				<treecell label="Item 2 description" />
+			</treerow>
+		</treeitem>
+		<treeitem>
+			<treerow>
+				<treecell label="Item 2.1" />
+			</treerow>
+			<treechildren>
+				<treeitem>
+					<treerow>
+						<treecell label="Item 2.1.1" />
+					</treerow>
+				</treeitem>
+				<treeitem>
+					<treerow>
+						<treecell label="Item 2.1.2" />
+					</treerow>
+				</treeitem>
+			</treechildren>
+		</treeitem>
+		<treeitem>
+			<treerow>
+				<treecell label="Item 2.2" />
+				<treecell label="Item 2.2 description" />
+			</treerow>
+		</treeitem>
+		<treeitem>
+			<treerow>
+				<treecell label="Item 3" />
+			</treerow>
+		</treeitem>
+	</treechildren>
+</tree>
