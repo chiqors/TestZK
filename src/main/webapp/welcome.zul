@@ -1,0 +1,6 @@
+<zk>
+    <window title="WelCome" border="normal" width="400px"
+        height="200px">
+        <label value="WelCome"></label>
+    </window>
+</zk>
