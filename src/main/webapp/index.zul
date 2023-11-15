@@ -1,21 +1,79 @@
-<window title="Upload" border="normal">
-	<button label="Upload" upload="true,maxsize=300">
-		<attribute name="onUpload">
-			<![CDATA[
-				org.zkoss.util.media.Media media = event.getMedia();
-				if (media instanceof org.zkoss.image.Image) {
-					org.zkoss.zul.Image image = new org.zkoss.zul.Image();
-					image.setContent(media);
-					image.setParent(pics);
-				} else {
-					Messagebox.show("Not an image: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
-					break;
-				}
-			]]>
-		</attribute>
-	</button>
-
-	<separator />
-
-	<vlayout id="pics" height="300px" style="overflow:auto;" />
+<window title="ZK Car Catalog Management Console" border="normal" width="1000px"
+		apply="org.example.test.MenuController">
+	<style src="/widgets/style.css" />
+	<menubar autodrop="true">
+		<menu label="Car">
+			<menupopup>
+				<menu label="New">
+					<menupopup>
+						<menuitem label="Small Car" />
+						<menuitem label="Mediem Car" />
+						<menuitem label="Large Car" />
+					</menupopup>
+				</menu>
+				<menuitem label="Search" />
+			</menupopup>
+		</menu>
+		<menu label="Edit">
+			<menupopup>
+				<menuitem label="Undo"
+						  image="/widgets/img/edit_undo.png" />
+				<menuitem label="Redo" disabled="true"
+						  image="/widgets/img/edit_redo.png" />
+				<menuseparator />
+				<menuitem label="Cut"
+						  image="/widgets/img/edit_cut.png" />
+				<menuitem label="Copy"
+						  image="/widgets/img/edit_copy.png" />
+				<menuitem label="Paste"
+						  image="/widgets/img/edit_paste.png" />
+				<menuseparator />
+				<menuitem label="Select All"
+						  image="/widgets/img/edit_select-all.png" />
+			</menupopup>
+		</menu>
+		<menu label="View">
+			<menupopup>
+				<menuitem label="Sort by Name" checkmark="true" autocheck="true" />
+				<menuitem label="Sort by Date" checkmark="true" autocheck="true" />
+			</menupopup>
+		</menu>
+		<menu label="Help">
+			<menupopup>
+				<menuitem label="Help Content" />
+				<menuitem label="About" />
+			</menupopup>
+		</menu>
+	</menubar>
+	<toolbar>
+		<toolbarbutton image="/widgets/img/file_new.png" tooltiptext="New"/>
+		<toolbarbutton image="/widgets/img/edit_undo.png" tooltiptext="Undo"/>
+		<toolbarbutton image="/widgets/img/edit_cut.png" tooltiptext="Cut"/>
+		<toolbarbutton image="/widgets/img/edit_copy.png" tooltiptext="Copy"/>
+		<toolbarbutton image="/widgets/img/edit_paste.png" tooltiptext="Paste"/>
+	</toolbar>
+	<menupopup id="editPopup">
+		<menuitem label="View" />
+		<menuitem label="Edit" />
+		<menuitem label="Delete" />
+	</menupopup>
+	<image src="/widgets/img/car1.png" width="140px" sclass="icon"
+		   tooltiptext="Right click to show menu" context="editPopup" />
+	<image src="/widgets/img/car2.png" width="140px" sclass="icon"
+		   tooltiptext="Right click to show menu" context="editPopup" />
+	<image src="/widgets/img/car3.png" width="140px" sclass="icon"
+		   tooltiptext="Right click to show menu" context="editPopup" />
+	<image src="/widgets/img/car4.png" width="140px" sclass="icon"
+		   tooltiptext="Right click to show menu" context="editPopup" />
+	<image src="/widgets/img/car5.png" width="140px" sclass="icon"
+		   tooltiptext="Right click to show menu" context="editPopup" />
+	<image src="/widgets/img/car6.png" width="140px" sclass="icon"
+		   tooltiptext="Right click to show menu" context="editPopup" />
+	<hlayout sclass="taskbar">
+		<button image="/widgets/img/windows.png" />
+		<button id="left" label="Cars on Sale"
+				image="/widgets/img/sticker_blue_sale.png" />
+		<button id="right" label="50% Off Cars"
+				image="/widgets/img/sticker_blue_50off.png" />
+	</hlayout>
 </window>
