@@ -1,34 +1,52 @@
-<window title="Grid Table" border="normal">
-	<grid>
-		<columns>
-			<column label="Author" sort="auto" />
-			<column label="Title" sort="auto" />
-			<column label="Publisher" sort="auto" />
-			<column label="Hardcover" />
-			<column label="Comment" />
-		</columns>
-		<rows>
-			<row>
-				<label value="Philip Hensher" />
-				<label value="The Northern Clemency" />
-				<label value="Knopf (October 30, 2008)" />
-				<label value="true" />
-				<textbox />
-			</row>
-			<row>
-				<label value="Philip Hensher" />
-				<label value="The Fit" />
-				<label value="Harper Perennial (March 1, 2005)" />
-				<label value="false" />
-				<textbox />
-			</row>
-			<row>
-				<label value="Philip Hensher" />
-				<label value="Kitchen Venom" />
-				<label value="Flamingo (June 1, 1997)" />
-				<label value="false" />
-				<textbox />
-			</row>
-		</rows>
-	</grid>
+<window title="ListBox" border="normal">
+	<listbox multiple="true" checkmark="true" mold="paging" pageSize="3">
+		<listhead>
+			<listheader width="50px" />
+			<listheader label="Model" sort="auto" />
+			<listheader label="Make" sort="auto" />
+			<listheader label="Type" sort="auto" />
+		</listhead>
+		<listitem>
+			<listcell />
+			<listcell label="RIO" />
+			<listcell label="KIA" />
+			<listcell label="Sedan" />
+		</listitem>
+		<listitem>
+			<listcell />
+			<listcell label="Civic" />
+			<listcell label="Honda" />
+			<listcell label="Sedan" />
+		</listitem>
+		<listitem>
+			<listcell />
+			<listcell label="Accord" />
+			<listcell label="Honda" />
+			<listcell label="Sedan" />
+		</listitem>
+		<listitem>
+			<listcell />
+			<listcell label="Camry" />
+			<listcell label="Toyota" />
+			<listcell label="Sedan" />
+		</listitem>
+		<listitem>
+			<listcell />
+			<listcell label="Corolla" />
+			<listcell label="Toyota" />
+			<listcell label="Sedan" />
+		</listitem>
+		<listitem>
+			<listcell />
+			<listcell label="Altima" />
+			<listcell label="Nissan" />
+			<listcell label="Sedan" />
+		</listitem>
+		<listitem>
+			<listcell />
+			<listcell label="Maxima" />
+			<listcell label="Nissan" />
+			<listcell label="Sedan" />
+		</listitem>
+	</listbox>
 </window>
