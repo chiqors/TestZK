@@ -1,97 +1,21 @@
-<zk>
-	<script type="text/javascript">
-		<![CDATA[
-         	(function(ori)
-         	{
-          	   zk.DnD.ghost = function (drag, ofs, msg)
-          	    	{
-                            var item, listbox, selItems;
-                            msg = 1;
-                            if ((item = drag.control) && (listbox = item.getListbox()) && (selItems = listbox.getSelectedItems()) && selItems.length)
-                            {
-                            	msg = selItems.length;
-                                  if (!selItems.$contains(item))
-                                      msg++;
-                            }
-                            return ori.apply(this, arguments);
-                    }
-	        })(zk.DnD.ghost);
-	]]>
-	</script>
-	<hlayout>
-		<listbox height="250px"
-				 width="200px"
-				 onDrop="move(event.dragged)"
-				 droppable="true"
-				 oddRowSclass="non-odd"
-				 multiple="true">
-			<listitem draggable="true"
-					  droppable="true"
-					  onDrop="move(event.dragged)"
-					  forEach="1,2,3,4,5">
-				<listcell label="item ${each}" ></listcell>
-			</listitem>
-		</listbox>
-
-		<separator orient="vertical" spacing="8px" ></separator>
-
-		<listbox height="250px"
-				 width="200px"
-				 onDrop="move(event.dragged)"
-				 droppable="true"
-				 oddRowSclass="non-odd"
-				 multiple="true">
-			<listitem draggable="true"
-					  droppable="true"
-					  onDrop="move(event.dragged)"
-					  forEach="6,7">
-				<listcell label="item ${each}" ></listcell>
-			</listitem>
-		</listbox>
-	</hlayout>
-	<zscript>
-		<![CDATA[
-		void move(Component dragged)
-		{
-			Listbox listbox = null;
-
-			if (dragged instanceof Listitem)
-			{
-				listbox = ((Listitem) dragged).getListbox();
-			}
-			else if (dragged instanceof Listbox)
-			{
-				listbox = (Listbox) dragged;
-			}
-
-			if (self instanceof Listitem)
-			{
-				self.parent.insertBefore(dragged, self);
-			}
-			else
-			{
-				self.appendChild(dragged);
-			}
-
-			if (listbox != null)
-			{
-                Iterator it = new ArrayList(listbox.getSelectedItems()).iterator();
-			    listbox.setSelectedItem(null);//clear selection
-				while(it.hasNext())
-				{
-					Listitem item = (Listitem)it.next();
-					item.setSelected(false);
-					if (self instanceof Listitem)
-					{
-						self.parent.insertBefore(item, self);
-					}
-					else
-					{
-						self.appendChild(item);
-					}
+<window title="Upload" border="normal">
+	<button label="Upload" upload="true,maxsize=300">
+		<attribute name="onUpload">
+			<![CDATA[
+				org.zkoss.util.media.Media media = event.getMedia();
+				if (media instanceof org.zkoss.image.Image) {
+					org.zkoss.zul.Image image = new org.zkoss.zul.Image();
+					image.setContent(media);
+					image.setParent(pics);
+				} else {
+					Messagebox.show("Not an image: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
+					break;
 				}
-			}
-		}
-	]]>
-	</zscript>
-</zk>
+			]]>
+		</attribute>
+	</button>
+
+	<separator />
+
+	<vlayout id="pics" height="300px" style="overflow:auto;" />
+</window>
