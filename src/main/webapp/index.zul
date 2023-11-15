@@ -1,25 +1,34 @@
-<window id="win" title="Car Inventory Editor" width="600px" border="normal" apply="org.example.test.Input">
+<window title="Grid Table" border="normal">
 	<grid>
+		<columns>
+			<column label="Author" sort="auto" />
+			<column label="Title" sort="auto" />
+			<column label="Publisher" sort="auto" />
+			<column label="Hardcover" />
+			<column label="Comment" />
+		</columns>
 		<rows>
 			<row>
-				Title: <textbox id="titleBox" constraint="no empty" />
+				<label value="Philip Hensher" />
+				<label value="The Northern Clemency" />
+				<label value="Knopf (October 30, 2008)" />
+				<label value="true" />
+				<textbox />
 			</row>
 			<row>
-				Created Date (yyyy/MM/dd): <datebox id="createdDateBox" format="yyyy/MM/dd" constraint="no empty" />
+				<label value="Philip Hensher" />
+				<label value="The Fit" />
+				<label value="Harper Perennial (March 1, 2005)" />
+				<label value="false" />
+				<textbox />
 			</row>
 			<row>
-				Bar Code: <intbox id="barCodeIntBox" format="00000" constraint="no empty, no negative" />
-			</row>
-			<row>
-				Unit Price: <doublebox id="unitPriceDoubleBox" format=",###.#" constraint="no empty, no negative" />
-			</row>
-			<row>
-				Quantity: <spinner id="quantitySpinner" format=",###" constraint="no empty, min 0" />
-			</row>
-			<row>
-				Location (click location to edit): <textbox id="locationBox" inplace="true" />
+				<label value="Philip Hensher" />
+				<label value="Kitchen Venom" />
+				<label value="Flamingo (June 1, 1997)" />
+				<label value="false" />
+				<textbox />
 			</row>
 		</rows>
 	</grid>
-	<button id="submitButton" label="Submit" />
 </window>
